@@ -10,7 +10,7 @@ import javax.persistence.Table;
 import java.math.BigDecimal;
 
 @Data
-@Table
+@Table(name = "case_info")
 @Entity
 public class CaseInfo extends BaseEntity{
     private String caseNumber;
@@ -18,8 +18,8 @@ public class CaseInfo extends BaseEntity{
     private BigDecimal allPayAmount;
     @ManyToOne
     @JoinColumn( name = "person_id")
-    private Person personId;
+    private Person personInfo;
     @ManyToOne
     @JoinColumn( name ="user_id")
-    private User userId;
+    private User userInfo;
 }

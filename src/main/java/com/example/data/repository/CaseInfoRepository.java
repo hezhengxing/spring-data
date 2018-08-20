@@ -15,5 +15,6 @@ public interface CaseInfoRepository extends JpaRepository<CaseInfo,String> ,Quer
     @Override
     default void customize(final QuerydslBindings bindings, final QCaseInfo root) {
         bindings.bind(String.class).first((StringPath path,String value)-> path.like("%".concat(StringUtils.trim(value))));
+        bindings.bind(root.personInfo.name).first((path, value) -> path.eq(StringUtils.trim(value)));
     }
 }

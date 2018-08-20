@@ -40,9 +40,9 @@ spring:
       type: com.alibaba.druid.pool.DruidDataSource
   redis:
      database: 3
-     host: 192.168.3.2
-     port: 4307
-     password: redis123456
+     host: localhost
+     port: 6379
+     password:
   data:
       mongodb:
         uri: mongodb://192.168.3.2:27017
