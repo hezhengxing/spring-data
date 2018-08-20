@@ -1,0 +1,55 @@
+# ����
+spring:
+  profiles:
+    active: dev
+
+# mybatis����
+mybatis:
+  typeAliasesPackage: com.example.demo.entity
+  mapperLocations: classpath:mapper/*.xml
+
+# mapper����
+mapper:
+    mappers:
+          - com.example.demo.config.MyMapper
+    not-empty: false
+    identity: MYSQL
+
+# ��ҳ����
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  params: count=countSql
+
+server:
+  port: 8099
+
+---
+
+# �������
+spring:
+
+  profiles: dev
+
+  datasource:
+      url: jdbc:mysql://localhost:3306/hzx_test?useUnicode=true&characterEncoding=utf8&useSSL=false
+      username: root
+      password: root
+      driver-class-name: com.mysql.jdbc.Driver
+      type: com.alibaba.druid.pool.DruidDataSource
+  redis:
+     database: 3
+     host: 192.168.3.2
+     port: 4307
+     password: redis123456
+  data:
+      mongodb:
+        uri: mongodb://192.168.3.2:27017
+        database: server-db-test
+  rabbitmq:
+      username: test
+      password: test
+      host: 119.23.223.206
+      virtual-host: test
+      port: 5672
